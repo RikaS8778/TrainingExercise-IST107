@@ -30,3 +30,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+function openModal(){
+    let number = false;
+    while(!number) {
+        number = prompt('Type a number!');
+        if(number) {
+            if (isNaN(number)){
+                alert('Data type only allows as number!');
+                number = false;
+            } else if (!(number >= 21 && number <= 99 )) {
+                alert('Valid number is between 21 to 99');
+                number = false;
+            } 
+        }
+    }
+    const ul = document.createElement('ul');
+    const listContainer = document.getElementById('list-container');
+    listContainer.innerHTML = '';
+    
+
+    for(i=1;i<=number;i++){
+        const li = document.createElement('li');
+        li.textContent = `item ${i}`;
+        li.style.backgroundColor = getRandomColor();
+        ul.appendChild(li);
+    }
+    listContainer.appendChild(ul);
+
+    
+
+}
+
+// Once a valid number is provided, create an unordered list (<ul>) with the same number of list items (<li>) as the number entered by the user.
+// Each list item should have a unique text, such as "Item 1", "Item 2", etc.
